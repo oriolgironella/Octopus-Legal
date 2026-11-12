@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Octopus | Suport</title>
+  <meta name="description" content="Pàgina oficial de suport d'Octopus. Contacta amb nosaltres per obtenir ajuda.">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8faf9;
+      color: #172033;
+      line-height: 1.6;
+    }
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e9ed;
+      padding: 32px 20px;
+      text-align: center;
+    }
+    h1 { margin: 0; color: #50aa98; font-size: 36px; }
+    .subtitle { color: #667085; margin-top: 5px; }
+    main { max-width: 720px; margin: 40px auto; padding: 0 20px; }
+    .card {
+      background: white;
+      border: 1px solid #e5e9ed;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+    h2 { font-size: 21px; margin-top: 0; }
+    a { color: #368f80; }
+    .button {
+      display: inline-block;
+      background: #50aa98;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+    .button:hover { background: #398f80; }
+    .language {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .language button {
+      border: 1px solid #d7e5e1;
+      background: white;
+      padding: 8px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #172033;
+    }
+    .language button.active {
+      background: #50aa98;
+      color: white;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #667085;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Octopus</h1>
+    <p class="subtitle">Study. Share. Connect.</p>
+    <div class="language">
+      <button onclick="setLang('ca')" id="ca">Català</button>
+      <button onclick="setLang('es')" id="es">Español</button>
+      <button onclick="setLang('en')" id="en">English</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 id="welcome"></h2>
+      <p id="intro"></p>
+    </section>
+
+    <section class="card">
+      <h2 id="contactTitle"></h2>
+      <p id="contactText"></p>
+      <p><strong>octopusupport@gmail.com</strong></p>
+      <a class="button" href="mailto:octopusupport@gmail.com" id="contactButton"></a>
+    </section>
+
+    <section class="card">
+      <h2 id="helpTitle"></h2>
+      <p id="helpText"></p>
+    </section>
+
+    <section class="card">
+      <h2 id="deleteTitle"></h2>
+      <p id="deleteText"></p>
+      <a href="mailto:octopusupport@gmail.com?subject=Octopus%20-%20Account%20deletion" id="deleteLink"></a>
+    </section>
+
+    <section class="card">
+      <h2 id="legalTitle"></h2>
+      <p>
+        <a href="privacy.html" id="privacyLink"></a>
+        <br>
+        <a href="terms.html" id="termsLink"></a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Octopus
+  </footer>
+
+  <script>
+    const translations = {
+      ca: {
+        welcome: "Centre de suport d'Octopus",
+        intro: "Necessites ajuda amb Octopus? Som aquí per ajudar-te a resoldre qualsevol dubte o problema relacionat amb l'aplicació.",
+        contactTitle: "Contacta amb nosaltres",
+        contactText: "Per comunicar un error, fer una consulta o enviar-nos suggeriments, escriu-nos a:",
+        contactButton: "Enviar un correu",
+        helpTitle: "Com podem ajudar-te?",
+        helpText: "Pots contactar amb nosaltres si tens problemes per iniciar sessió, recuperar la contrasenya, registrar sessions d'estudi, publicar contingut o utilitzar qualsevol funcionalitat d'Octopus.",
+        deleteTitle: "Eliminació del compte",
+        deleteText: "Si necessites ajuda per eliminar el teu compte o tens preguntes sobre les teves dades personals, contacta amb el nostre equip de suport.",
+        deleteLink: "Sol·licitar ajuda amb l'eliminació del compte",
+        legalTitle: "Documents legals",
+        privacyLink: "Política de privacitat",
+        termsLink: "Termes i condicions"
+      },
+      es: {
+        welcome: "Centro de soporte de Octopus",
+        intro: "¿Necesitas ayuda con Octopus? Estamos aquí para resolver cualquier duda o problema relacionado con la aplicación.",
+        contactTitle: "Contacta con nosotros",
+        contactText: "Para comunicar un error, realizar una consulta o enviarnos sugerencias, escríbenos a:",
+        contactButton: "Enviar un correo",
+        helpTitle: "¿Cómo podemos ayudarte?",
+        helpText: "Puedes contactar con nosotros si tienes problemas para iniciar sesión, recuperar tu contraseña, registrar sesiones de estudio, publicar contenido o utilizar cualquier función de Octopus.",
+        deleteTitle: "Eliminación de la cuenta",
+        deleteText: "Si necesitas ayuda para eliminar tu cuenta o tienes preguntas sobre tus datos personales, contacta con nuestro equipo de soporte.",
+        deleteLink: "Solicitar ayuda para eliminar la cuenta",
+        legalTitle: "Documentos legales",
+        privacyLink: "Política de privacidad",
+        termsLink: "Términos y condiciones"
+      },
+      en: {
+        welcome: "Octopus Support Center",
+        intro: "Need help with Octopus? We're here to answer your questions and help you resolve any issues with the app.",
+        contactTitle: "Contact Us",
+        contactText: "To report a bug, ask a question, or send feedback, please email:",
+        contactButton: "Send an Email",
+        helpTitle: "How Can We Help?",
+        helpText: "Contact us if you experience issues signing in, resetting your password, tracking study sessions, sharing posts, or using any Octopus feature.",
+        deleteTitle: "Account Deletion",
+        deleteText: "If you need assistance deleting your account or have questions about your personal data, contact our support team.",
+        deleteLink: "Request account deletion assistance",
+        legalTitle: "Legal Documents",
+        privacyLink: "Privacy Policy",
+        termsLink: "Terms and Conditions"
+      }
+    };
+
+    function setLang(lang) {
+      const texts = translations[lang];
+      document.documentElement.lang = lang;
+
+      Object.keys(texts).forEach(key => {
+        const element = document.getElementById(key);
+        if (element) element.textContent = texts[key];
+      });
+
+      document.querySelectorAll(".language button").forEach(button => {
+        button.classList.toggle("active", button.id === lang);
+      });
+    }
+
+    const browserLanguage = navigator.language.toLowerCase();
+    const initialLanguage = browserLanguage.startsWith("ca") ? "ca"
+      : browserLanguage.startsWith("es") ? "es"
+      : "en";
+
+    setLang(initialLanguage);
+  </script>
+</body>
+</html>
